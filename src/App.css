@@ -42,20 +42,26 @@ body{
 }
 
 .sfondoNuvoloso{
-  background-image: url(/image/clouds.jpg);
+  background-image: url(/image/clouds.svg);
 }
 .sfondoSole{
-  background-image: url(/image/sun.jpg);
+  background-image: url(/image/sun.svg);
 }
 .sfondoPioggia{
-  background-image: url(/image/rain.jpg);
+  background-image: url(/image/rain.svg);
 }
 .sfondoNeve{
-  background-image: url(/image/neve.jpg);
+  background-image: url(/image/snow.svg);
 }
 
-.sfondoNuvoloso, .sfondoNeve, .sfondoPioggia, .sfondoSole, body{
+ body{
   background-size: cover;
+  
+}
+.sfondoNuvoloso, .sfondoNeve, .sfondoPioggia, .sfondoSole{
+  background-size: cover;
+  width: 5rem;
+  height: 5rem; 
 }
 
 .navbar{
@@ -84,7 +90,9 @@ html, body, #root{
 }
 
 div.container-fluid{
-  padding:0
+  
+  padding: 0;
+  
 }
 
 #root{
@@ -93,4 +101,31 @@ div.container-fluid{
 
 .title{
   color:#02c8f5;
+}
+
+.locationTitle{
+  font-size: 5em;
+}
+
+.gradi{
+  font-size: 8em;
+  font-weight: lighter;
+}
+.divGradi{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonDiv{
+
+}
+
+.buttonDiv button{
+  background-color: transparent;
+  border: 1px solid black;
+}
+.weatherDiv{
+  width: 50%;
+  margin: 0 auto;
 }

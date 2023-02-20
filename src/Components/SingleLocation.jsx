@@ -53,36 +53,68 @@ const SingleLocation = (props) => {
 
     return(
         <>
-    {props.location && <Card style={{ width: '18rem' }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-      <Card.Body className={background}>
-      <Card.Title>
-        <h4>{props.location.city.name}</h4>
-        <span>{Math.round(props.location.list[timeIndex].main.temp - 273,15) + " gradi"}</span>
-      </Card.Title>
-        <Card.Text>
-          {props.location.list[timeIndex].dt_txt}
-          
-        </Card.Text>
-        <Card.Text>
-        
-          
-        </Card.Text>
-        <Button variant="primary" onClick={addToCounter}>
-            next 3h
-        </Button>
-        
-        <Button variant="danger" onClick={() => {
-            dispatch({
-                type: "ADD-TO-ARRAY",
-                payload: props.location
-            })
-        }}
-        >Salva</Button>
-      </Card.Body>
-    </Card>}
+    {props.location && 
+    <div className="cardDiv">
+          <div className="weatherDiv">
+            <div className="divGradi">
+            <span className="gradi">{Math.round(props.location.list[timeIndex].main.temp - 273,15) + "°"}</span>
+              <div className={background} /> 
+              
+            </div>
+              <div>
+              <h4 className="locationTitle">{props.location.city.name}</h4>
+                {props.location.list[timeIndex].dt_txt.slice(11, 16)}
+                
+              </div>
+              
+              <div className="buttonDiv">
+                <Button variant="primary" onClick={addToCounter}>
+                    next 3h
+                </Button>
+                
+                <Button variant="danger" onClick={() => {
+                    dispatch({
+                        type: "ADD-TO-ARRAY",
+                        payload: props.location
+                    })
+                }}
+                >Salva</Button>
+              </div>
+        </div>
+    </div>}
     </>
     )
+
+    // {props.location && <Card style={{ width: '18rem' }}>
+    //   {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+    //   <Card.Body className={background}>
+    //   <Card.Title>
+    //     <h4>{props.location.city.name}</h4>
+    //     <span>{Math.round(props.location.list[timeIndex].main.temp - 273,15) + " gradi"}</span>
+    //   </Card.Title>
+    //     <Card.Text>
+    //       {props.location.list[timeIndex].dt_txt}
+          
+    //     </Card.Text>
+    //     <Card.Text>
+        
+          
+    //     </Card.Text>
+    //     <Button variant="primary" onClick={addToCounter}>
+    //         next 3h
+    //     </Button>
+        
+    //     <Button variant="danger" onClick={() => {
+    //         dispatch({
+    //             type: "ADD-TO-ARRAY",
+    //             payload: props.location
+    //         })
+    //     }}
+    //     >Salva</Button>
+    //   </Card.Body>
+    // </Card>}
+    // </>
+    // )
     // <Card style={{ width: '18rem' }}>
     //   <Card.Img variant="top" src="holder.js/100px180" />
     //   <Card.Body>
