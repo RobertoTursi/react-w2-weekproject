@@ -6,6 +6,7 @@ const SingleLocation = (props) => {
 
     const dispatch = useDispatch()
     const locationObject = useSelector((state) => state.site.locationObject)
+    const background = useSelector((state) => state.background)
 
     let [timeIndex, setTimeIndex] = useState(0)
 
@@ -19,17 +20,56 @@ const SingleLocation = (props) => {
         }
     }
 
+     if(props.location.list[timeIndex].weather[0].main === "Clouds"){
+      dispatch({
+        type: "CHANGE-BACKGROUND",
+        payload: "sfondoNuvoloso"
+      })
+     } 
+     else if(props.location.list[timeIndex].weather[0].main === "Clear"){
+      dispatch({
+        type: "CHANGE-BACKGROUND",
+        payload: "sfondoSole"
+      })
+     } 
+     else if(props.location.list[timeIndex].weather[0].main === "Rain"){
+      dispatch({
+        type: "CHANGE-BACKGROUND",
+        payload: "sfondoPioggia"
+      })
+     } 
+     else if(props.location.list[timeIndex].weather[0].main === "Snow"){
+      dispatch({
+        type: "CHANGE-BACKGROUND",
+        payload: "sfondoNeve"
+      })
+     } 
+     else if(props.location.list[timeIndex].weather[0].main === "Clouds"){
+      dispatch({
+        type: "CHANGE-BACKGROUND",
+        payload: "sfondoNuvoloso"
+      })
+     } 
+
     return(
         <>
     {props.location && <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-      <Card.Title>{props.location.city.name}</Card.Title>
+      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+      <Card.Body className={background}>
+      <Card.Title>
+        <h4>{props.location.city.name}</h4>
+        <span>{Math.round(props.location.list[timeIndex].main.temp - 273,15) + " gradi"}</span>
+      </Card.Title>
         <Card.Text>
           {props.location.list[timeIndex].dt_txt}
+          
+        </Card.Text>
+        <Card.Text>
+        
+          
         </Card.Text>
         <Button variant="primary" onClick={addToCounter}>
-            Go somewhere
+            next 3h
         </Button>
         
         <Button variant="danger" onClick={() => {

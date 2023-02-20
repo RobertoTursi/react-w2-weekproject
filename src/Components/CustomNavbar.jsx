@@ -3,12 +3,16 @@ import { useDispatch } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
 
 const CustomNavbar = () => {
+
+    
+
+
     const location = useLocation
     const dispatch = useDispatch()
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar className="navbar" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand className="title" href="#">Epimeteo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -17,22 +21,9 @@ const CustomNavbar = () => {
             navbarScroll
           >
             <Link to="/" className={`nav-Link ${location.pathname === "/" ? "active" : ""}`}>Home</Link>            
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
+            
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" >
             <Form.Control
               type="search"
               placeholder="Inserisci una località"

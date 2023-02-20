@@ -83,7 +83,7 @@ const ShowWeather = () => {
       </Card.Body>
     </Card>} }*/}
 
-{locationObject && <SingleLocation location={locationObject}/>}
+{locationObject && <div className="cardDiv"><SingleLocation location={locationObject}/></div>}
     </>
     )
 }

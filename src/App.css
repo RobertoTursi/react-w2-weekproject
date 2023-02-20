@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url(/image/sfondoapp.jpg);
+}
+
+.sfondoNuvoloso{
+  background-image: url(/image/clouds.jpg);
+}
+.sfondoSole{
+  background-image: url(/image/sun.jpg);
+}
+.sfondoPioggia{
+  background-image: url(/image/rain.jpg);
+}
+.sfondoNeve{
+  background-image: url(/image/neve.jpg);
+}
+
+.sfondoNuvoloso, .sfondoNeve, .sfondoPioggia, .sfondoSole, body{
+  background-size: cover;
+}
+
+.navbar{
+  background-color: transparent;
+  
+}
+
+#root{
+  margin:0 3rem
+}
+
+html, body, #root{
+  height: 100vh;
+}
+
+.cardDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-Link{
+  text-decoration: none;
+  color:white
+}
+
+div.container-fluid{
+  padding:0
+}
+
+#root{
+  color:white
+}
+
+.title{
+  color:#02c8f5;
+}
