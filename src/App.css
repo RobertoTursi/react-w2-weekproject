@@ -41,7 +41,19 @@ body{
   background-image: url(/image/sfondoapp.jpg);
 }
 
-.sfondoNuvoloso{
+.clouds{
+  background-image: url(/image/clouds.svg);
+}
+.clear{
+  background-image: url(/image/sun.svg);
+}
+.rain{
+  background-image: url(/image/rain.svg);
+}
+.snow{
+  background-image: url(/image/snow.svg);
+}
+/* .sfondoNuvoloso{
   background-image: url(/image/clouds.svg);
 }
 .sfondoSole{
@@ -52,17 +64,21 @@ body{
 }
 .sfondoNeve{
   background-image: url(/image/snow.svg);
-}
+} */
 
  body{
   background-size: cover;
   
 }
-.sfondoNuvoloso, .sfondoNeve, .sfondoPioggia, .sfondoSole{
+.clouds, .snow, .rain, .clear{
+  background-size: cover;
+   
+}
+/* .sfondoNuvoloso, .sfondoNeve, .sfondoPioggia, .sfondoSole{
   background-size: cover;
   width: 5rem;
   height: 5rem; 
-}
+} */
 
 .navbar{
   background-color: transparent;
@@ -80,7 +96,7 @@ html, body, #root{
 .cardDiv{
   display: flex;
   justify-content: center;
-  align-items: center;
+  
   height: 100%;
 }
 
@@ -118,14 +134,46 @@ div.container-fluid{
 }
 
 .buttonDiv{
-
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-top: 25px;
 }
 
 .buttonDiv button{
   background-color: transparent;
   border: 1px solid black;
 }
+.homeWeatherDiv{
+    width: 25%;
+    margin: 1rem auto;
+    padding:15px;
+    background-color: hwb(0deg 0% 100% / 30%);
+}
 .weatherDiv{
-  width: 50%;
-  margin: 0 auto;
+    width: 50%;
+    margin: 3rem auto;
+    padding:25px
+    
+}
+
+.weatherDiv, .homeWeatherDiv{
+  border-radius: 7px;
+    /* border: 1px solid black; */
+    
+}
+
+.icon{
+  width: 5rem;
+  height: 5rem; 
+}
+
+.homeIcon{
+  width: 2rem;
+  height: 2rem; 
+}
+
+.singleCard{
+  margin-top: 2rem;
+  border: 1px solid black
 }

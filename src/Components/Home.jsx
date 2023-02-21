@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux"
-import { Button, Col, Row } from "react-bootstrap"
+import { useSelector } from "react-redux"
+import {  Col, Row } from "react-bootstrap"
 import SingleLocation from "./SingleLocation"
 
 const Home = () => {
@@ -14,6 +14,7 @@ const Home = () => {
             <Row key={i}>
                 <Col>
                     <SingleLocation location={location}/>
+                    
                 </Col>
                 {/* <Col>
                     <Button variant="danger" onClick={() => {

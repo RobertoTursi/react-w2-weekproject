@@ -1,14 +1,15 @@
-import { Card,Button } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
+
 
 const SingleLocation = (props) => {
 
     const dispatch = useDispatch()
     const locationObject = useSelector((state) => state.site.locationObject)
     const arrayOfLocation = useSelector((state) => state.arrayOfLocation)
-    const background = useSelector((state) => state.background)
+    // const background = useSelector((state) => state.background)
     const windowLocation = useLocation()
 
     let [timeIndex, setTimeIndex] = useState(0)
@@ -37,58 +38,58 @@ const SingleLocation = (props) => {
       
     }
 
+    
 
-     if(props.location.list[timeIndex].weather[0].main === "Clouds"){
-      dispatch({
-        type: "CHANGE-BACKGROUND",
-        payload: "sfondoNuvoloso"
-      })
-     } 
-     else if(props.location.list[timeIndex].weather[0].main === "Clear"){
-      dispatch({
-        type: "CHANGE-BACKGROUND",
-        payload: "sfondoSole"
-      })
-     } 
-     else if(props.location.list[timeIndex].weather[0].main === "Rain"){
-      dispatch({
-        type: "CHANGE-BACKGROUND",
-        payload: "sfondoPioggia"
-      })
-     } 
-     else if(props.location.list[timeIndex].weather[0].main === "Snow"){
-      dispatch({
-        type: "CHANGE-BACKGROUND",
-        payload: "sfondoNeve"
-      })
-     } 
-     else if(props.location.list[timeIndex].weather[0].main === "Clouds"){
-      dispatch({
-        type: "CHANGE-BACKGROUND",
-        payload: "sfondoNuvoloso"
-      })
-     } 
-
+     
+    //  if(props.location.list[timeIndex].weather[0].main === "Clouds"){
+    //   dispatch({
+    //     type: "CHANGE-BACKGROUND",
+    //     payload: "sfondoNuvoloso"
+    //   })
+    //  } 
+    //  else if(props.location.list[timeIndex].weather[0].main === "Clear"){
+    //   dispatch({
+    //     type: "CHANGE-BACKGROUND",
+    //     payload: "sfondoSole"
+    //   })
+    //  } 
+    //  else if(props.location.list[timeIndex].weather[0].main === "Rain"){
+    //   dispatch({
+    //     type: "CHANGE-BACKGROUND",
+    //     payload: "sfondoPioggia"
+    //   })
+    //  } 
+    //  else if(props.location.list[timeIndex].weather[0].main === "Snow"){
+    //   dispatch({
+    //     type: "CHANGE-BACKGROUND",
+    //     payload: "sfondoNeve"
+    //   })
+    //  } 
+     
     return(
         <>
     {props.location && 
     <div className="cardDiv">
-          <div className="weatherDiv">
+          <div className={`${windowLocation.pathname === "/" ? "homeWeatherDiv" : "weatherDiv"}`}>
             <div className="divGradi">
-            <span className="gradi">{Math.round(props.location.list[timeIndex].main.temp - 273,15) + "°"}</span>
-              <div className={background} /> 
+            <span className={windowLocation.pathname === "/" ? "" : "gradi"}>{Math.round(props.location.list[timeIndex].main.temp - 273,15) + "°"}</span>
+              
+              {/* <div className={props.location.list[timeIndex].weather[0].main.toLowerCase()}></div> */}
+              {/* {windowLocation.pathname === "/ShowWeather" && <div className={background} />} */}
+              <div className={`${windowLocation.pathname === "/" ? "homeIcon" : "icon"}
+               ${props.location.list[timeIndex].weather[0].main.toLowerCase()}`} /> 
               
             </div>
               <div>
-              <h4 className="locationTitle">{props.location.city.name}</h4>
+              <h4 className={windowLocation.pathname === "/" ? "" : "locationTitle"}>{props.location.city.name}</h4>
                 {props.location.list[timeIndex].dt_txt.slice(11, 16)}
                 
               </div>
               
               <div className="buttonDiv">
-                <Button variant="primary" onClick={addToCounter}>
+                {windowLocation.pathname === "/ShowWeather" && <Button variant="primary" onClick={addToCounter}>
                     next 3h
-                </Button>
+                </Button>}
                 
                 {windowLocation.pathname === "/ShowWeather" && <Button variant="danger" onClick={() => addToArray()}
                 >Salva</Button>}

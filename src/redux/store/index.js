@@ -10,7 +10,7 @@ const initialState = {
     //     timeIndex:0
     // }
     arrayOfLocation: [],
-    background: ""
+    // background: ""
     
     
 }
@@ -58,11 +58,11 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 arrayOfLocation: state.arrayOfLocation.filter((loc) => loc !== action.payload)
                 }
-        case "CHANGE-BACKGROUND":
-            return{
-                ...state,
-                background: action.payload
-            }
+        // case "CHANGE-BACKGROUND":
+        //     return{
+        //         ...state,
+        //         background: action.payload
+        //     }
                 
         
         // case "TIME++":
