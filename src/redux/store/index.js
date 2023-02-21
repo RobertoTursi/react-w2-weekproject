@@ -12,6 +12,7 @@ const initialState = {
     arrayOfLocation: [],
     background: ""
     
+    
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -47,10 +48,15 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                 arrayOfLocation: [...state.arrayOfLocation, action.payload]
             }    
+        // case "LOCATION-INDEX":
+        //     return{
+        //         ...state,
+        //         arrayOfLocation: state.arrayOfLocation.filter((_, i) => i !== action.payload)
+        //         }
         case "LOCATION-INDEX":
             return{
                 ...state,
-                arrayOfLocation: state.arrayOfLocation.filter((_, i) => i !== action.payload)
+                arrayOfLocation: state.arrayOfLocation.filter((loc) => loc !== action.payload)
                 }
         case "CHANGE-BACKGROUND":
             return{

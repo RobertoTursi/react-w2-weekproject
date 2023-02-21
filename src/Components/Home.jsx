@@ -3,7 +3,7 @@ import { Button, Col, Row } from "react-bootstrap"
 import SingleLocation from "./SingleLocation"
 
 const Home = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const arrayOfLocation = useSelector((state) => state.arrayOfLocation)
     
     return(
@@ -15,7 +15,7 @@ const Home = () => {
                 <Col>
                     <SingleLocation location={location}/>
                 </Col>
-                <Col>
+                {/* <Col>
                     <Button variant="danger" onClick={() => {
                         dispatch({
                             type: "LOCATION-INDEX",
@@ -24,7 +24,7 @@ const Home = () => {
                     }}>
                         delete
                     </Button>
-                </Col>
+                </Col> */}
             </Row>
 
         ))}

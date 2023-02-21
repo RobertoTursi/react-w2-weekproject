@@ -1,12 +1,15 @@
 import { Card,Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 const SingleLocation = (props) => {
 
     const dispatch = useDispatch()
     const locationObject = useSelector((state) => state.site.locationObject)
+    const arrayOfLocation = useSelector((state) => state.arrayOfLocation)
     const background = useSelector((state) => state.background)
+    const windowLocation = useLocation()
 
     let [timeIndex, setTimeIndex] = useState(0)
 
@@ -19,6 +22,21 @@ const SingleLocation = (props) => {
          console.log(timeIndex)
         }
     }
+
+    const addToArray = () =>{
+      
+      if(arrayOfLocation.includes(props.location)){
+        console.log("gia salvato")
+      } else{
+        dispatch({
+          type: "ADD-TO-ARRAY",
+          payload: props.location
+        })
+      }
+     
+      
+    }
+
 
      if(props.location.list[timeIndex].weather[0].main === "Clouds"){
       dispatch({
@@ -72,13 +90,23 @@ const SingleLocation = (props) => {
                     next 3h
                 </Button>
                 
-                <Button variant="danger" onClick={() => {
+                {windowLocation.pathname === "/ShowWeather" && <Button variant="danger" onClick={() => addToArray()}
+                >Salva</Button>}
+                {windowLocation.pathname === "/" && <Button variant="danger" onClick={() => {
+                        dispatch({
+                            type: "LOCATION-INDEX",
+                            payload: props.location
+                        })
+                    }}>
+                        delete
+                    </Button>}
+                {/* <Button variant="danger" onClick={() => {
                     dispatch({
-                        type: "ADD-TO-ARRAY",
-                        payload: props.location
-                    })
+                      type: "ADD-TO-ARRAY",
+                      payload: props.location
+                  })
                 }}
-                >Salva</Button>
+                >Salva</Button> */}
               </div>
         </div>
     </div>}
