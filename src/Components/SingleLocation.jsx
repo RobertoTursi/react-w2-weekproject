@@ -33,6 +33,7 @@ const SingleLocation = (props) => {
           type: "ADD-TO-ARRAY",
           payload: props.location
         })
+        console.log("non salvato")
       }
      
       
